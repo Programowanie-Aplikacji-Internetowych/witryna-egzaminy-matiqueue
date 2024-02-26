@@ -19,39 +19,40 @@ import { AvatarDemo } from "./avatar";
 
 const components: { title: string; href: string; description: string }[] = [
   {
-    title: "Alert Dialog",
-    href: "/docs/primitives/alert-dialog",
+    title: "Egzamin na programistę",
+    href: "/docs/professional-exams/programmer",
     description:
-      "A modal dialog that interrupts the user with important content and expects a response.",
+      "Przygotowuje do pracy jako programista poprzez sprawdzenie umiejętności w zakresie algorytmów, języków programowania i rozwiązywania problemów informatycznych.",
   },
   {
-    title: "Hover Card",
-    href: "/docs/primitives/hover-card",
+    title: "Egzamin z algorytmów",
+    href: "/docs/professional-exams/algorithms",
     description:
-      "For sighted users to preview content available behind a link.",
+      "Ocenia zdolność do projektowania i analizy algorytmów, kluczową umiejętność w pracy programisty, szczególnie w obszarach takich jak optymalizacja i złożoność obliczeniowa.",
   },
   {
-    title: "Progress",
-    href: "/docs/primitives/progress",
+    title: "Egzamin z baz danych",
+    href: "/docs/professional-exams/database",
     description:
-      "Displays an indicator showing the completion progress of a task, typically displayed as a progress bar.",
+      "Testuje znajomość tworzenia, zarządzania i optymalizacji baz danych, co jest kluczowe w projektowaniu i wdrażaniu aplikacji opartych na danych.",
   },
   {
-    title: "Scroll-area",
-    href: "/docs/primitives/scroll-area",
-    description: "Visually or semantically separates content.",
+    title: "Egzamin z bezpieczeństwa IT",
+    href: "/docs/professional-exams/security",
+    description:
+      "Sprawdza umiejętności z zakresu zabezpieczeń sieciowych i aplikacji, niezbędne w środowisku pracy informatyka z uwagi na rosnące zagrożenia cybernetyczne.",
   },
   {
-    title: "Tabs",
-    href: "/docs/primitives/tabs",
+    title: "Egzamin z projektowania oprogramowania",
+    href: "/docs/professional-exams/software-design",
     description:
-      "A set of layered sections of content—known as tab panels—that are displayed one at a time.",
+      "Ocenia umiejętność projektowania oprogramowania, w tym architektury systemów, wzorców projektowych i zarządzania cyklem życia aplikacji.",
   },
   {
-    title: "Tooltip",
-    href: "/docs/primitives/tooltip",
+    title: "Egzamin z technologii webowych",
+    href: "/docs/professional-exams/web-technologies",
     description:
-      "A popup that displays information related to an element when the element receives keyboard focus or the mouse hovers over it.",
+      "Testuje wiedzę na temat technologii webowych, takich jak HTML, CSS, JavaScript i narzędzia do budowy aplikacji internetowych.",
   },
 ];
 
@@ -61,42 +62,50 @@ export function NavigationMenuDemo() {
       <NavigationMenu>
         <NavigationMenuList>
           <NavigationMenuItem>
-            <AvatarDemo />
+            <Link href="/" passHref>
+              <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+                <AvatarDemo />
+              </NavigationMenuLink>
+            </Link>
           </NavigationMenuItem>
           <NavigationMenuItem>
-            <NavigationMenuTrigger>Getting started</NavigationMenuTrigger>
+            <NavigationMenuTrigger>Rozpocznij</NavigationMenuTrigger>
             <NavigationMenuContent>
               <ul className="grid gap-3 p-4 md:w-[400px] lg:w-[500px] lg:grid-cols-[.75fr_1fr]">
                 <li className="row-span-3">
                   <NavigationMenuLink asChild>
                     <Link
-                      className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md"
+                      className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md "
                       href="/"
                     >
                       <div className="mb-2 mt-4 text-lg font-medium">
-                        shadcn/ui
+                        O mnie
                       </div>
                       <p className="text-sm leading-tight text-muted-foreground">
-                        Beautifully designed components built with Radix UI and
-                        Tailwind CSS.
+                        Jestem Full Stack Developerem specjalizującym się
+                        głównie w fr. Next.js, frameworku do routingu apek React
                       </p>
                     </Link>
                   </NavigationMenuLink>
                 </li>
-                <ListItem href="/docs" title="Introduction">
-                  Re-usable components built using Radix UI and Tailwind CSS.
+                <ListItem href="/docs" title="Wstęp">
+                  Aby rozpocząc zabawe stwórz nowy projekt.
                 </ListItem>
-                <ListItem href="/docs/installation" title="Installation">
-                  How to install dependencies and structure your app.
+                <ListItem href="/docs/installation" title="Egzaminy">
+                  Lista Egzaminów Informatycznych: INF.02, INF.03, INF.04
                 </ListItem>
-                <ListItem href="/docs/primitives/typography" title="Typography">
-                  Styles for headings, paragraphs, lists...etc
+                <ListItem
+                  href="/docs/primitives/typography"
+                  title="Jak to działa?"
+                >
+                  Aplikacja opiera sie na bazie danych MongoDB i sluzy do
+                  zapisywania swojego progresu w nauce do egzaminow zawodowych
                 </ListItem>
               </ul>
             </NavigationMenuContent>
           </NavigationMenuItem>
           <NavigationMenuItem>
-            <NavigationMenuTrigger>Components</NavigationMenuTrigger>
+            <NavigationMenuTrigger>Egzaminy</NavigationMenuTrigger>
             <NavigationMenuContent>
               <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
                 {components.map((component) => (
@@ -114,7 +123,7 @@ export function NavigationMenuDemo() {
           <NavigationMenuItem>
             <Link href="/docs" legacyBehavior passHref>
               <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                Documentation
+                Documentacja
               </NavigationMenuLink>
             </Link>
           </NavigationMenuItem>
