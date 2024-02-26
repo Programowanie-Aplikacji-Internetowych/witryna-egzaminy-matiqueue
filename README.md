@@ -1,7 +1,3 @@
-## Panie Dominik pan se kliknie w link tu jest gotowa apka odpalona na npm'ie, wiec tutaj pan ma:
-
-`witryna-egzaminy.vercel.app`
-
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
