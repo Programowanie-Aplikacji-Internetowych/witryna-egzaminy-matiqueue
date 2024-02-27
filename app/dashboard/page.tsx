@@ -6,7 +6,7 @@ import { NavigationMenuDemo } from "../ui/navigation";
 export default function Dashboard() {
   return (
     <main>
-      <div className="flex top-0 p-4">
+      <div className="flex top-0 p-5">
         <DropdownMenuDemo />
         <NavigationMenuDemo />
       </div>
