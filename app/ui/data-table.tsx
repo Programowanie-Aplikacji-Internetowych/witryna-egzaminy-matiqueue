@@ -40,7 +40,7 @@ import {
   TableRow,
 } from "@/components/ui/table";
 
-const data: Payment[] = [
+const data: Egzaminy[] = [
   {
     id: "m5gr84i9",
     typ: "INF.03",
@@ -73,14 +73,14 @@ const data: Payment[] = [
   },
 ];
 
-export type Payment = {
+export type Egzaminy = {
   id: string;
-  typ: string | number;
+  typ: string;
   status: "nierozstrzygniety" | "przetwarzanie" | "sukces" | "nieudany";
   nazwa: string;
 };
 
-export const columns: ColumnDef<Payment>[] = [
+export const columns: ColumnDef<Egzaminy>[] = [
   {
     id: "select",
     header: ({ table }) => (
@@ -129,19 +129,18 @@ export const columns: ColumnDef<Payment>[] = [
     accessorKey: "typ",
     header: () => <div className="text-right">Typ</div>,
     cell: ({ row }) => {
-      const typ = row.getValue("typ");
+      const typ: number = row.getValue("typ");
 
       // Format the amount as a dollar amount
-      
 
-      return <div className="text-right font-medium">{ typ }</div>;
+      return <div className="text-right font-medium">{typ}</div>;
     },
   },
   {
     id: "actions",
     enableHiding: false,
     cell: ({ row }) => {
-      const payment = row.original;
+      const egzaminy = row.original;
 
       return (
         <DropdownMenu>
@@ -154,7 +153,7 @@ export const columns: ColumnDef<Payment>[] = [
           <DropdownMenuContent align="end">
             <DropdownMenuLabel>Akcje</DropdownMenuLabel>
             <DropdownMenuItem
-              onClick={() => navigator.clipboard.writeText(payment.id)}
+              onClick={() => navigator.clipboard.writeText(egzaminy.id)}
             >
               Kopiuj ID egzaminu
             </DropdownMenuItem>
@@ -296,7 +295,7 @@ export function DataTableDemo() {
             onClick={() => table.previousPage()}
             disabled={!table.getCanPreviousPage()}
           >
-            Previous
+            Poprzedni
           </Button>
           <Button
             variant="outline"
@@ -304,7 +303,7 @@ export function DataTableDemo() {
             onClick={() => table.nextPage()}
             disabled={!table.getCanNextPage()}
           >
-            Next
+            Następny
           </Button>
         </div>
       </div>
