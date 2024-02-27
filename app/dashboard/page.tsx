@@ -1,11 +1,15 @@
 import { AlertDemo } from "../ui/alert";
 import { DataTableDemo } from "../ui/data-table";
+import { DropdownMenuDemo } from "../ui/dropdown-menu";
 import { NavigationMenuDemo } from "../ui/navigation";
 
 export default function Dashboard() {
   return (
     <main>
-      <NavigationMenuDemo />
+      <div className="flex top-0 p-4">
+        <DropdownMenuDemo />
+        <NavigationMenuDemo />
+      </div>
 
       <div className="justify-center">
         <div className="p-10">

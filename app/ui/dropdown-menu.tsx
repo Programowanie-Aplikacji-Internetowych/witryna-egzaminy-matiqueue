@@ -13,6 +13,7 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { AvatarDemo } from "./avatar";
+import Link from "next/link";
 
 export function DropdownMenuDemo() {
   return (
@@ -66,7 +67,7 @@ export function DropdownMenuDemo() {
         <DropdownMenuItem disabled>API</DropdownMenuItem>
         <DropdownMenuSeparator />
         <DropdownMenuItem>
-          Log out
+          <Link href="/">Log out</Link>
           <DropdownMenuShortcut>⇧⌘Q</DropdownMenuShortcut>
         </DropdownMenuItem>
       </DropdownMenuContent>

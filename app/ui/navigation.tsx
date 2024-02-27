@@ -58,12 +58,10 @@ const components: { title: string; href: string; description: string }[] = [
 
 export function NavigationMenuDemo() {
   return (
-    <div className="top-0 p-4">
+    <div className="">
       <NavigationMenu>
         <NavigationMenuList>
-          <NavigationMenuItem>
-            <DropdownMenuDemo />
-          </NavigationMenuItem>
+          <NavigationMenuItem></NavigationMenuItem>
           <NavigationMenuItem>
             <NavigationMenuTrigger>Rozpocznij</NavigationMenuTrigger>
             <NavigationMenuContent>
