@@ -15,7 +15,7 @@ import {
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
 import { ModeToggle } from "./dark-mode";
-import { AvatarDemo } from "./avatar";
+import { DropdownMenuDemo } from "./dropdown-menu";
 
 const components: { title: string; href: string; description: string }[] = [
   {
@@ -58,15 +58,11 @@ const components: { title: string; href: string; description: string }[] = [
 
 export function NavigationMenuDemo() {
   return (
-    <div className="sticky top-0 p-4">
+    <div className="top-0 p-4">
       <NavigationMenu>
         <NavigationMenuList>
           <NavigationMenuItem>
-            <Link href="/" passHref>
-              <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-                <AvatarDemo />
-              </NavigationMenuLink>
-            </Link>
+            <DropdownMenuDemo />
           </NavigationMenuItem>
           <NavigationMenuItem>
             <NavigationMenuTrigger>Rozpocznij</NavigationMenuTrigger>
