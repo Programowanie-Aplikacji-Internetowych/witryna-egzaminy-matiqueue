@@ -43,7 +43,7 @@ export function CardWithForm() {
                 <SelectContent position="popper">
                   <SelectItem value="next">INF.02 / EE.08</SelectItem>
                   <SelectItem value="sveltekit">INF.03 / EE.09</SelectItem>
-                  <SelectItem value="astro">INF.03 / EE.10</SelectItem>
+                  <SelectItem value="astro">INF.04 / EE.10</SelectItem>
                 </SelectContent>
               </Select>
             </div>
