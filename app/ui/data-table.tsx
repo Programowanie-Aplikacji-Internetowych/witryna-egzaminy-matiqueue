@@ -43,41 +43,41 @@ import {
 const data: Payment[] = [
   {
     id: "m5gr84i9",
-    amount: 316,
-    status: "success",
-    email: "ken99@yahoo.com",
+    typ: "INF.03",
+    status: "sukces",
+    nazwa: "Responsywność Strony na Różne Urządzenia:",
   },
   {
     id: "3u1reuv4",
-    amount: 242,
-    status: "success",
-    email: "Abe45@gmail.com",
+    typ: "INF.02",
+    status: "sukces",
+    nazwa: "Bezpieczeństwo Strony i Ochrona Danych",
   },
   {
     id: "derv1ws0",
-    amount: 837,
-    status: "processing",
-    email: "Monserrat44@gmail.com",
+    typ: "INF.04",
+    status: "przetwarzanie",
+    nazwa: "Funkcje Społecznościowe i Komentarze",
   },
   {
     id: "5kma53ae",
-    amount: 874,
-    status: "success",
-    email: "Silas22@gmail.com",
+    typ: "INF.03",
+    status: "sukces",
+    nazwa: "Integracja Mapy dla Różnych Ras Psów",
   },
   {
     id: "bhqecj4p",
-    amount: 721,
-    status: "failed",
-    email: "carmella@hotmail.com",
+    typ: "INF.02",
+    status: "nieudany",
+    nazwa: "Testy Jednostkowe i Debugowanie",
   },
 ];
 
 export type Payment = {
   id: string;
-  amount: number;
-  status: "pending" | "processing" | "success" | "failed";
-  email: string;
+  typ: string | number;
+  status: "nierozstrzygniety" | "przetwarzanie" | "sukces" | "nieudany";
+  nazwa: string;
 };
 
 export const columns: ColumnDef<Payment>[] = [
@@ -111,33 +111,30 @@ export const columns: ColumnDef<Payment>[] = [
     ),
   },
   {
-    accessorKey: "email",
+    accessorKey: "nazwa",
     header: ({ column }) => {
       return (
         <Button
           variant="ghost"
           onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
         >
-          Email
+          Nazwa Egzaminu Zawodowego
           <CaretSortIcon className="ml-2 h-4 w-4" />
         </Button>
       );
     },
-    cell: ({ row }) => <div className="lowercase">{row.getValue("email")}</div>,
+    cell: ({ row }) => <div className="">{row.getValue("nazwa")}</div>,
   },
   {
-    accessorKey: "amount",
-    header: () => <div className="text-right">Amount</div>,
+    accessorKey: "typ",
+    header: () => <div className="text-right">Typ</div>,
     cell: ({ row }) => {
-      const amount = parseFloat(row.getValue("amount"));
+      const typ = row.getValue("typ");
 
       // Format the amount as a dollar amount
-      const formatted = new Intl.NumberFormat("en-US", {
-        style: "currency",
-        currency: "USD",
-      }).format(amount);
+      
 
-      return <div className="text-right font-medium">{formatted}</div>;
+      return <div className="text-right font-medium">{ typ }</div>;
     },
   },
   {
@@ -150,20 +147,20 @@ export const columns: ColumnDef<Payment>[] = [
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
             <Button variant="ghost" className="h-8 w-8 p-0">
-              <span className="sr-only">Open menu</span>
+              <span className="sr-only">Otwórz menu</span>
               <DotsHorizontalIcon className="h-4 w-4" />
             </Button>
           </DropdownMenuTrigger>
           <DropdownMenuContent align="end">
-            <DropdownMenuLabel>Actions</DropdownMenuLabel>
+            <DropdownMenuLabel>Akcje</DropdownMenuLabel>
             <DropdownMenuItem
               onClick={() => navigator.clipboard.writeText(payment.id)}
             >
-              Copy payment ID
+              Kopiuj ID egzaminu
             </DropdownMenuItem>
             <DropdownMenuSeparator />
-            <DropdownMenuItem>View customer</DropdownMenuItem>
-            <DropdownMenuItem>View payment details</DropdownMenuItem>
+            <DropdownMenuItem>Zobacz egzamin</DropdownMenuItem>
+            <DropdownMenuItem>Pobierz egzamin</DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>
       );
@@ -203,17 +200,17 @@ export function DataTableDemo() {
     <div className="w-full">
       <div className="flex items-center py-4">
         <Input
-          placeholder="Filter emails..."
-          value={(table.getColumn("email")?.getFilterValue() as string) ?? ""}
+          placeholder="Wyszukaj po Nazwie Egzaminu..."
+          value={(table.getColumn("nazwa")?.getFilterValue() as string) ?? ""}
           onChange={(event) =>
-            table.getColumn("email")?.setFilterValue(event.target.value)
+            table.getColumn("nazwa")?.setFilterValue(event.target.value)
           }
           className="max-w-sm"
         />
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
             <Button variant="outline" className="ml-auto">
-              Columns <ChevronDownIcon className="ml-2 h-4 w-4" />
+              Kolumny <ChevronDownIcon className="ml-2 h-4 w-4" />
             </Button>
           </DropdownMenuTrigger>
           <DropdownMenuContent align="end">
@@ -289,8 +286,8 @@ export function DataTableDemo() {
       </div>
       <div className="flex items-center justify-end space-x-2 py-4">
         <div className="flex-1 text-sm text-muted-foreground">
-          {table.getFilteredSelectedRowModel().rows.length} of{" "}
-          {table.getFilteredRowModel().rows.length} row(s) selected.
+          {table.getFilteredSelectedRowModel().rows.length} z{" "}
+          {table.getFilteredRowModel().rows.length} wybranych wiersz(y).
         </div>
         <div className="space-x-2">
           <Button
