@@ -16,7 +16,10 @@ export default function Dashboard() {
           <DataTableDemo />
         </div>
       </div>
-      <AlertDemo />
+      <AlertDemo
+        alertTitle="Brawo!"
+        alertDescription="Dodałeś właśnie nowy Egzamin Zawodowy!"
+      />
     </main>
   );
 }
