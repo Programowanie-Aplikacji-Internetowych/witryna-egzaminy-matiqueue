@@ -45,31 +45,36 @@ const data: Egzaminy[] = [
     id: "m5gr84i9",
     typ: "INF.03",
     status: "sukces",
-    nazwa: "Responsywność Strony na Różne Urządzenia:",
+    nazwa: "Nasze Osiedle",
+    storage: "../egzaminy/Nasze-Osiedle/uzytkownicy.php",
   },
   {
     id: "3u1reuv4",
     typ: "INF.02",
     status: "sukces",
     nazwa: "Bezpieczeństwo Strony i Ochrona Danych",
+    storage: "",
   },
   {
     id: "derv1ws0",
     typ: "INF.04",
     status: "przetwarzanie",
     nazwa: "Funkcje Społecznościowe i Komentarze",
+    storage: "",
   },
   {
     id: "5kma53ae",
     typ: "INF.03",
     status: "sukces",
     nazwa: "Integracja Mapy dla Różnych Ras Psów",
+    storage: "",
   },
   {
     id: "bhqecj4p",
     typ: "INF.02",
     status: "nieudany",
     nazwa: "Testy Jednostkowe i Debugowanie",
+    storage: "",
   },
 ];
 
@@ -78,6 +83,7 @@ export type Egzaminy = {
   typ: string;
   status: "nierozstrzygniety" | "przetwarzanie" | "sukces" | "nieudany";
   nazwa: string;
+  storage: string;
 };
 
 export const columns: ColumnDef<Egzaminy>[] = [
