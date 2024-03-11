@@ -1,0 +1,56 @@
+body, h1, h2, p, ol, ul, li, form, label, input {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Garamond', serif;
+}
+
+.banner {
+    background-color: SaddleBrown;
+    color: white;
+    text-align: center;
+    height: 50px;
+}
+
+.lewy {
+    background-color: Tan;
+    height: 500px;
+    width: 40%;
+    float: left;
+}
+
+.prawy {
+    background-color: Tan;
+    height: 500px;
+    width: 60%;
+    float: right;
+}
+
+.dol ol {
+    margin: 20px;
+}
+
+.footer {
+    background-color: SaddleBrown;
+    color: white;
+    clear: both;
+}
+
+form {
+    background-color: SaddleBrown;
+    color: white;
+    width: 300px;
+    margin: 20px 20px 20px 0px;
+    padding: 10px 30px;
+}
+
+form label {
+    margin: 5px 0;
+}
+
+.gora p::before {
+    content: "STATUS: ";
+}
+

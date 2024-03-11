@@ -23,6 +23,7 @@
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.0",
     "devtools-detect": "^4.0.1",
+    "dotenv": "^16.4.5",
     "electron": "^29.1.0",
     "next": "14.1.0",
     "next-themes": "^0.2.1",

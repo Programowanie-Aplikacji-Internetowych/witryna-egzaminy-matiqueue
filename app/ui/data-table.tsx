@@ -42,30 +42,30 @@ import {
 
 const data: Egzaminy[] = [
   {
+    id: "derv1ws0",
+    typ: "INF.03",
+    status: "przetwarzanie",
+    nazwa: "Sieci Komputerowe",
+    storage: "egzaminy/Sieci-Komputerowe.zip",
+  },
+  {
     id: "m5gr84i9",
     typ: "INF.03",
     status: "sukces",
     nazwa: "Nasze Osiedle",
-    storage: "../egzaminy/Nasze-Osiedle/uzytkownicy.php",
+    storage: "egzaminy/Nasze-Osiedle.zip",
   },
   {
     id: "3u1reuv4",
-    typ: "INF.02",
+    typ: "INF.03",
     status: "sukces",
-    nazwa: "Bezpieczeństwo Strony i Ochrona Danych",
-    storage: "",
-  },
-  {
-    id: "derv1ws0",
-    typ: "INF.04",
-    status: "przetwarzanie",
-    nazwa: "Funkcje Społecznościowe i Komentarze",
-    storage: "",
+    nazwa: "Forum Wielbicieli Psów",
+    storage: "egzaminy/Wielbiciele-Psow.zip",
   },
   {
     id: "5kma53ae",
-    typ: "INF.03",
-    status: "sukces",
+    typ: "INF.04",
+    status: "nierozstrzygniety",
     nazwa: "Integracja Mapy dla Różnych Ras Psów",
     storage: "",
   },
@@ -85,6 +85,26 @@ export type Egzaminy = {
   nazwa: string;
   storage: string;
 };
+
+async function downloadFile(storagePath: string): Promise<void> {
+  try {
+    const response = await fetch(storagePath);
+    if (!response.ok) {
+      throw new Error("Wystąpił problem podczas pobierania pliku.");
+    }
+    const blob = await response.blob();
+    const url = window.URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = storagePath.split("/").pop() || "file";
+    document.body.appendChild(a);
+    a.click();
+    window.URL.revokeObjectURL(url);
+    document.body.removeChild(a);
+  } catch (error) {
+    console.error(error);
+  }
+}
 
 export const columns: ColumnDef<Egzaminy>[] = [
   {
@@ -165,7 +185,9 @@ export const columns: ColumnDef<Egzaminy>[] = [
             </DropdownMenuItem>
             <DropdownMenuSeparator />
             <DropdownMenuItem>Zobacz egzamin</DropdownMenuItem>
-            <DropdownMenuItem>Pobierz egzamin</DropdownMenuItem>
+            <DropdownMenuItem onClick={() => downloadFile(egzaminy.storage)}>
+              Pobierz Egzamin
+            </DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>
       );
